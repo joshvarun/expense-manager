@@ -193,7 +193,7 @@ let UIController = (() => {
     }
 })();
 
-let controller = ((UIController, ExpenseController) => {
+((UIController, ExpenseController) => {
 
     let HTMLStrings = UIController.getHTMLStrings();
     let setupEventListeners = () => {
@@ -227,13 +227,12 @@ let controller = ((UIController, ExpenseController) => {
         }
     }
 
-    return {
-        init() {
-            console.log('Initializing...');
-            setupEventListeners();
-            UIController.showCurrentMonth();
-        }
-    };
-})(UIController, ExpenseController);
+    let init = () => {
+        console.log('Initializing...');
+        setupEventListeners();
+        UIController.showCurrentMonth();
+    }
 
-controller.init();
+    init();
+
+})(UIController, ExpenseController);
